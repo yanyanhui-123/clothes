@@ -10,7 +10,7 @@ class Global {
     WidgetsFlutterBinding.ensureInitialized();
 
     // 系统样式
-    setSystemUi();dasds
+    setSystemUi();
 
     // 工具类
     await Storage().init();
