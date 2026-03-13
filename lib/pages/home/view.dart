@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yyh_clothes/common/index.dart';
-import 'package:yyh_clothes/pages/home/widgets/testai.dart';
+// import 'package:yyh_clothes/pages/home/widgets/testai.dart';
 
 import 'index.dart';
 
@@ -29,7 +29,7 @@ class _HomeViewGetX extends GetView<HomeController> {
 
   // 主视图
   Widget _buildView() {
-    return ChatPage();
+    return Container();
   }
 
   @override

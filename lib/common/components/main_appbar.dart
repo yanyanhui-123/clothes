@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:yyh_clothes/common/index.dart';
 
-AppBar? primaryAppBar(
+AppBar? mainAppBar(
     {String? title,
     Widget? leading,
     Widget? titleWidget,
@@ -11,22 +11,12 @@ AppBar? primaryAppBar(
     Color? foregroundColor,
     VoidCallback? backAction,
     PreferredSizeWidget? bottom,
-    double? elevation,
+    double? elevation = 0,
     List<Widget>? actions,
     double? leadingWidth,
-    Color titleColor = Colors.white}) {
+    Color titleColor = Colors.black}) {
   return AppBar(
-      leading: leading ??
-          Icon(Icons.arrow_back_ios, color: foregroundColor ?? Colors.black)
-              .marginOnly(left: AppSpace.page)
-              .unconstrained()
-              .onTap(() {
-            if (backAction == null) {
-              Get.back();
-            } else {
-              backAction();
-            }
-          }),
+      leading: null,
       leadingWidth: leading == null ? 44.w : leadingWidth,
       title: titleWidget ??
           Text(
@@ -39,6 +29,6 @@ AppBar? primaryAppBar(
       centerTitle: true,
       backgroundColor: backgroundColor ?? Colors.white,
       actions: actions,
-      elevation: elevation ?? 1.8,
+      elevation: elevation ?? 0,
       bottom: bottom);
 }

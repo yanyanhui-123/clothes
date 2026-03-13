@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:isar/isar.dart';
 import 'package:yyh_clothes/common/components/app_error_widget.dart';
+import 'package:yyh_clothes/common/database/index.dart';
 import 'common/index.dart';
 
 class Global {
@@ -14,6 +16,14 @@ class Global {
 
     // 工具类
     await Storage().init();
+    final isar = await IsarService().db;
+    final user = await isar.users.where().findFirst();
+
+    if (user == null) {
+      await isar.writeTxn(() async {
+        await isar.users.put(User());
+      });
+    }
     Loading();
 
     //初始化服务

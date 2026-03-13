@@ -1,0 +1,18 @@
+import 'package:isar/isar.dart';
+
+part 'category.g.dart';
+
+@collection
+class Category {
+
+  Id id = Isar.autoIncrement;
+
+  @Index(unique: true)
+  late String name;
+
+  String? icon;
+
+  int sort = 0;
+
+  DateTime createTime = DateTime.now();
+}

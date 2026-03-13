@@ -8,6 +8,9 @@ import 'package:yyh_clothes/common/index.dart';
 
 Future<void> main() async {
   await Global.init();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  
   runApp(const MyApp());
 }
 

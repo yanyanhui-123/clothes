@@ -5,7 +5,7 @@ import 'package:yyh_clothes/common/index.dart';
 import 'package:yyh_clothes/common/widgets/bottombar.dart';
 import 'package:yyh_clothes/pages/clothes/view.dart';
 import 'package:yyh_clothes/pages/index.dart';
-import 'package:yyh_clothes/pages/mine/view.dart';
+import 'package:yyh_clothes/pages/my/mine/view.dart';
 import 'package:yyh_clothes/pages/paired/view.dart';
 
 class MainPage extends StatefulWidget {

@@ -23,5 +23,7 @@ class AssetsImages {
   static const String permissionCamera = "assets/images/permission_camera.png";
   static const String permissionMicrophone = "assets/images/permission_microphone.png";
   static const String permissionLocation = "assets/images/permission_location.png";
+  static const String defaultAvatar = "assets/images/default_avatar.png";
+  static const String edit = "assets/images/edit.png";
 
 }

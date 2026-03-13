@@ -14,6 +14,7 @@ class AppTheme {
       ExtFlutterDefaultColorTheme.light,
     ],
     fontFamily: 'PingFangSC-Regular,PingFang SC',
+    scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
       // appBar 暗色 , 和主题色相反
       systemOverlayStyle: SystemUiOverlayStyle.dark,
