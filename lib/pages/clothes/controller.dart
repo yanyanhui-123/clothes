@@ -1,27 +1,36 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yyh_clothes/common/api/categorys.dart';
+import 'package:yyh_clothes/common/database/models/category.dart';
 
 class ClothesController extends GetxController {
   ClothesController();
 
-  _initData() {
+  List<Category> categorys = [];
+  var isFinish = false.obs;
+
+  Future getCateList() async {
+    categorys = await CategorysApi().getCateList();
+    
+    isFinish.value = true;
     update(["clothes"]);
   }
 
-  void onTap() {}
-
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
 
   @override
-  void onReady() {
-    super.onReady();
-    _initData();
+  void onInit() async {
+    super.onInit();
+    await getCateList();
   }
 
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
+  @override
+  void onReady() async {
+    super.onReady();
+    
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }

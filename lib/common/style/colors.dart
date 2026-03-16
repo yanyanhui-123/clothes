@@ -114,6 +114,7 @@ class AppColors {
   static Color color_333333 = const Color(0xff333333);
   static Color color_999999 = const Color(0xff999999);
   static Color color_666666 = const Color(0xff666666);
+  static Color color_eaeaea = const Color(0xffeaeaea);
   static Color color_primary = const Color.fromARGB(255, 130, 150, 241);
   static Color color_primary1 = const Color.fromARGB(255, 110, 135, 246);
 }

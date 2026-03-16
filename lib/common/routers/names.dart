@@ -8,4 +8,6 @@ class RouteNames {
   static const systemSplash = '/system_splash';
   static const systemUserAgreement = '/system_user_agreement';
   static const systemHome = '/system_home';
+  static const myCategory = '/my_category';
+  static const createClothes = '/create_clothes';
 }

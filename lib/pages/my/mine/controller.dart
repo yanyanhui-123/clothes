@@ -3,7 +3,11 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:yyh_clothes/common/api/clothes.dart';
+import 'package:yyh_clothes/common/api/clothesStats.dart';
+import 'package:yyh_clothes/common/api/user.dart';
 import 'package:yyh_clothes/common/database/index.dart';
+import 'package:yyh_clothes/common/index.dart';
 
 class MineController extends GetxController {
   MineController();
@@ -14,11 +18,12 @@ class MineController extends GetxController {
   var total = 0.obs;
   var catesTotal = [].obs;
   var frequentlyClothes = [].obs; 
+  User? user;
   
 
   _initData() async {
-    final isar = await IsarService().db;
-    final user = await isar.users.where().findFirst();
+    user = await UserApi().getUserInfo();
+    getStatistics();
     avatar.value = user?.avatar ?? "";
     userName.value = user?.name ?? "";
     desc.value = user?.desc ?? "";
@@ -27,28 +32,29 @@ class MineController extends GetxController {
 
 
   void onChangeUserName(String value) async{
-    final isar = await IsarService().db;
-    final user = await isar.users.where().findFirst();
     if (user != null) {
-      await isar.writeTxn(() async {
-        user.name = value;
-        await isar.users.put(user);
-        userName.value = value;
-      });
+      await UserApi().changeUserName(user!, value);
+      userName.value = value;
     }
   }
 
   void onChangeUserDesc(String value) async{
-    final isar = await IsarService().db;
-    final user = await isar.users.where().findFirst();
     if (user != null) {
-      await isar.writeTxn(() async {
-        user.desc = value;
-        await isar.users.put(user);
-        desc.value = value;
-      });
+      await UserApi().changeUserDesc(user!, value);
+      desc.value = value;
     }
   }
+
+  void getStatistics() async {
+    final stats = await ClothesApi().getClothesStats();
+    total.value = stats.total;
+    catesTotal.value = stats.top3;
+  }
+
+  void toAddCate() {
+    Get.toNamed(RouteNames.myCategory);
+  }
+
 
   // @override
   // void onInit() {

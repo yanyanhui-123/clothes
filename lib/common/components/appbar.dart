@@ -14,7 +14,7 @@ AppBar? primaryAppBar(
     double? elevation,
     List<Widget>? actions,
     double? leadingWidth,
-    Color titleColor = Colors.white}) {
+    Color? titleColor}) {
   return AppBar(
       leading: leading ??
           Icon(Icons.arrow_back_ios, color: foregroundColor ?? Colors.black)
@@ -34,11 +34,11 @@ AppBar? primaryAppBar(
             style: TextStyle(
                 fontSize: 19.sp,
                 fontWeight: FontWeight.bold,
-                color: titleColor),
+                color: titleColor ?? Color(0xff333333)),
           ),
       centerTitle: true,
       backgroundColor: backgroundColor ?? Colors.white,
       actions: actions,
-      elevation: elevation ?? 1.8,
+      elevation: elevation ?? 0,
       bottom: bottom);
 }

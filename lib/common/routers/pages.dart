@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yyh_clothes/pages/createClothes/view.dart';
+import 'package:yyh_clothes/pages/my/categorys/view.dart';
 import 'index.dart';
 import 'package:yyh_clothes/pages/index.dart';
 
@@ -29,6 +31,14 @@ class RoutePages {
     GetPage(
       name: RouteNames.systemUserAgreement,
       page: () => const UserAgreementPage(),
+    ),
+    GetPage(
+      name: RouteNames.myCategory,
+      page: () => const CategorysPage(),
+    ),
+    GetPage(
+      name: RouteNames.createClothes,
+      page: () => const CreateclothesPage(),
     ),
     
   ];

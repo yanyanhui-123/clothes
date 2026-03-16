@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:yyh_clothes/common/components/main_appbar.dart';
+import 'package:yyh_clothes/common/index.dart';
+import 'package:yyh_clothes/pages/clothes/widgets/verticalCategoryTab.dart';
 
 import 'index.dart';
 
@@ -13,7 +17,7 @@ class ClothesPage extends StatefulWidget {
 class _ClothesPageState extends State<ClothesPage>
     with AutomaticKeepAliveClientMixin {
   @override
-  bool get wantKeepAlive => true;
+  bool get wantKeepAlive => false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +31,18 @@ class _ClothesViewGetX extends GetView<ClothesController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("ClothesPage"),
-    );
+    return Row(
+          children: [
+            VerticalCategoryTab(
+              items: controller.categorys.map((e) => e.name).toList(),
+              onChanged: (index) {
+                print(index);
+              },
+            ),
+
+            Expanded(child: Container())
+          ],
+        );
   }
 
   @override
@@ -39,7 +52,18 @@ class _ClothesViewGetX extends GetView<ClothesController> {
       id: "clothes",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("clothes")),
+          appBar: mainAppBar(
+            title: "我的衣柜", 
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.add_box_rounded),
+                onPressed: () {
+                  Get.toNamed(RouteNames.createClothes);
+                },
+              ),
+            ]
+          ),
+          backgroundColor: Colors.white,
           body: SafeArea(
             child: _buildView(),
           ),

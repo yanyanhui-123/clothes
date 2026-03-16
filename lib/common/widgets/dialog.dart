@@ -213,7 +213,7 @@ class ActionDialog {
                   surfaceTintColor: Colors.transparent, 
                 ),
                 onPressed: () {
-                  Get.back(closeOverlays: true);
+                  Get.back();
                   if (onCancel != null) {
                     onCancel();
                   }
@@ -232,7 +232,7 @@ class ActionDialog {
                   surfaceTintColor: Colors.transparent, 
                 ),
                 onPressed: () {
-                  Get.back(closeOverlays: true);
+                  Get.back();
                   if (onConfirm != null) {
                     onConfirm();
                   }

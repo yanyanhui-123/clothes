@@ -25,5 +25,6 @@ class AssetsImages {
   static const String permissionLocation = "assets/images/permission_location.png";
   static const String defaultAvatar = "assets/images/default_avatar.png";
   static const String edit = "assets/images/edit.png";
+  static const String create = "assets/images/create.png";
 
 }
